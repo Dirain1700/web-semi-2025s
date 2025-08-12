@@ -53,6 +53,8 @@ JavaScriptって、コードおかしくても、実行して、イベントを�
 開発元がMicrosoft、VSCodeと同じところなのでいろいろ配慮されていて、VSCodeで書くとすごい楽です。
 書き方は簡単、拡張子を.jsから.tsに変えるだけ。ただ今回はJavaScriptゼミなので、今回はやりません。
 
+参考: [TypeScript - MDN Web Docs 用語集](https://developer.mozilla.org/ja/docs/Glossary/TypeScript)
+
 ### WSL
 
 Windows Subsystem on Linuxです。バリバリ開発しないならおすすめしません。興味があれば聞いてください。
