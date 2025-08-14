@@ -19,7 +19,7 @@
 なお、`typeof` 演算子を変数の前に置くと、型をコードで判別できます。
 
 ```js
-typeof "meow meow"
+typeof "meow meow";
 ```
 
 これを実行すると、`string`と返ってくるはずです。
@@ -31,15 +31,14 @@ typeof "meow meow"
 JavaScriptでは、double qouteが標準です。別にシングルでもダメなわけではないですが、ダブル派が圧倒的に多いです。私もダブル派なので、~~シングルが標準のPythonは嫌いです。~~
 
 ```js
-"Hello, world!"
-'Hello, world'
-`Hello, world!`
+"Hello, world!";
+"Hello, world"`Hello, world!`;
 ```
 
 back qouteはエスケープの時に使います。どういうことかというと、
 
 ```js
-`Hello, ${"world!"}`
+`Hello, ${"world!"}`;
 ```
 
 back qouteで囲んで、`${"world!"}`と記述しています。この`${}`で囲むと、そこに好きな変数をかけるわけです。そのうち出てきます。
@@ -51,12 +50,12 @@ back qouteで囲んで、`${"world!"}`と記述しています。この`${}`で�
 PythonにはIntとfloatがありましたが、JSにはnumberのみです。そのかわりどちらも扱えますが、小数の計算には難があります。次のコードをブラウザで実行してみてください。
 
 ```js
-0.3 - 0.2
+0.3 - 0.2;
 ```
 
 JSでこんな計算をすることは基本ないですししても桁を丸めることが多いので、気にしなくてもいい...は嘘かもしれません。気にするときはこれを回避するためのライブラリがあるのでそれを使いましょう。
 
-あと、Number型で扱える最大の数字は2**53 - 1です。それ以上はBigIntを使いましょう。たまに数字だけの文字列をNumberとして解釈しようとして桁が勝手に丸められている事故が起こります。注意しましょう~~私だけかもしれません~~
+あと、Number型で扱える最大の数字は2\*\*53 - 1です。それ以上はBigIntを使いましょう。たまに数字だけの文字列をNumberとして解釈しようとして桁が勝手に丸められている事故が起こります。注意しましょう~~私だけかもしれません~~
 
 [Number - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
@@ -67,7 +66,7 @@ JSでこんな計算をすることは基本ないですししても桁を丸め
 は？
 
 ```js
-typeof null // <- object
+typeof null; // <- object
 ```
 
 ？
@@ -83,7 +82,7 @@ typeof null // <- object
 こっちはあります。
 
 ```js
-typeof undefined // <- undefined
+typeof undefined; // <- undefined
 ```
 
 これは、リソースがそもそも定義されていないことを示しています。
@@ -103,12 +102,14 @@ functionです。Pythonのdefと一緒です。文法はのちほど
 ### object
 
 objectです。ほぼすべての値がobjectです。
+
 ```js
 {
 	"key": "value"
 }
 ["value"]
 ```
+
 上は別名が連想配列、下は配列です。配列はPythonだとlistという名前です。
 
 ### boolean
@@ -133,10 +134,10 @@ Copilotさん、これでいいですか？
 
 ### BigInt
 
-2**53以上の値を扱うときはこっちで。いや、扱わんやろ
+2\*\*53以上の値を扱うときはこっちで。いや、扱わんやろ
 
 ```js
-BigInt("1111111111111111111111111111111111111111")
+BigInt("1111111111111111111111111111111111111111");
 ```
 
 これ以外は通常のNumberと同様演算子による計算ができるっぽいです。やったことないけど。~~つかbignumber.js使えよ~~
@@ -152,7 +153,7 @@ BigInt("1111111111111111111111111111111111111111")
 先ほどのこれ
 
 ```js
-["value1", "value2"]
+["value1", "value2"];
 ```
 
 [Array - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array)
@@ -162,16 +163,18 @@ listと同じと言いましたが、実際に配列を宣言するときは、
 ```py
 list("a", "b", "c") # Python
 ```
+
 ```js
-["a", "b", "c"] // JavaScript
+["a", "b", "c"]; // JavaScript
 ```
 
 このように、JSでは`[]`をつかって宣言します。for文などの扱いは一緒です。
+
 ```js
 array = ["a", "b", "c", "d"];
 
-for(let i in array) {
-	console.log(i)
+for (let i in array) {
+    console.log(i);
 }
 ```
 

@@ -9,6 +9,7 @@
 ### 変数宣言
 
 Pythonではただ`=`でつなぐだけでした。
+
 ```py
 isPythonTerrible = true
 ```
@@ -26,12 +27,12 @@ JavaScriptでは、Pythonのように宣言することもできますが、変�
 接頭辞の働きは以下のとおりです。
 再宣言とは接頭辞をつけて同じ変数名での代入、再代入は接頭辞なしでの代入です。
 
-| 接頭辞 | 再宣言 | 再代入 |
-| :--- | :--: | :--: |
-| 接頭辞なし | ○ | ○ |
-| var | ○ | ○ |
-| let | × | ○ |
-| const | × | × |
+| 接頭辞     | 再宣言 | 再代入 |
+| :--------- | :----: | :----: |
+| 接頭辞なし |   ○    |   ○    |
+| var        |   ○    |   ○    |
+| let        |   ×    |   ○    |
+| const      |   ×    |   ×    |
 
 このうち、接頭辞なしとvarは絶対アカンやつです。何がアカンか、わかりますか？
 
@@ -67,19 +68,19 @@ nullとかundefinedは変わらないじゃん！とか思ったそこのあな�
 
 変数にはスコープがあります。スコープというのは変数が使える範囲です。
 
-| 接頭辞 | スコープ |
-| :--- | :--: |
-| 接頭辞なし | global |
-| var | global |
-| let | 宣言したブロック |
-| const | 宣言したブロック |
+| 接頭辞     |     スコープ     |
+| :--------- | :--------------: |
+| 接頭辞なし |      global      |
+| var        |      global      |
+| let        | 宣言したブロック |
+| const      | 宣言したブロック |
 
 宣言したブロックというのは、まあそのままなのですが、
 
 ```js
 {
-	const name = "Alice";
-	console.log(name); // <- Alice
+    const name = "Alice";
+    console.log(name); // <- Alice
 }
 console.log(name); // ReferenceError: name is not defined
 ```
@@ -92,7 +93,7 @@ console.log(name); // ReferenceError: name is not defined
 
 ```js
 function printArg(arg) {
-	console.log(arg)
+    console.log(arg);
 }
 ```
 
@@ -109,7 +110,7 @@ functionは、任意の値を一つだけ返すことができます。Pythonと
 
 ```js
 function isNameBlank(name) {
-	return !name;
+    return !name;
 }
 ```
 
@@ -157,23 +158,24 @@ for...ofは配列に使います。for...inは`{ key: value }`で表される**�
 const arr = ["a", "f", "1", "8"];
 
 const dict = {
-	"taro": "saitama",
-	"jiro": "tokyo",
-	"saburo": "kagawa",
-	"shiro": "inu"
+    taro: "saitama",
+    jiro: "tokyo",
+    saburo: "kagawa",
+    shiro: "inu",
 };
 
 for (const i of arr) {
-	console.log(i);
+    console.log(i);
 }
 
 for (const k in dict) {
-	console.log(k, dict[k])
+    console.log(k, dict[k]);
 }
 ```
 
 言い忘れていましたが、連想配列では、ブラケット記法という方法で変数をkeyとしてvalueにアクセスすることができます。
 たとえば、dictのtaroが欲しければ、`dict["taro"]`のようにアクセスすることもできますが、`const key = "taro";`のように変数に値を格納して、それをkeyとして連想配列のvalueにアクセスできます。
+
 ```js
 // 上のdictを先に定義してください
 const key = "taro";
@@ -199,8 +201,8 @@ JavaScriptだとこう:
 [for - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for)
 
 ```js
-for (let i = 0;i < 10;i++) {
-	console.log(i);
+for (let i = 0; i < 10; i++) {
+    console.log(i);
 }
 ```
 
@@ -214,9 +216,9 @@ forのかっこの中身をセミコロンで区切って読みます。最初�
 4. iに1を加算
 5. iが10より小さいので中身へ
 
-30. console.log(i)、ただしi = 9
-31. iに1を加算
-32. iが10より小さくないので終了
+6. console.log(i)、ただしi = 9
+7. iに1を加算
+8. iが10より小さくないので終了
 
 です。
 

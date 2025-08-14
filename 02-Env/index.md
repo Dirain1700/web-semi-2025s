@@ -43,7 +43,6 @@ GitHubはえっちなサイトではないです。
 
 Pythonと違って、どんなに汚いコードでも自動整形してくれます！対応しているのはHTML、CSS、JavaScript、TypeScript、その他にも...
 
-
 `npm i -D prettier`でインストールできます。というかしなさい
 
 ### TypeScript
