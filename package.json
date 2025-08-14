@@ -1,9 +1,11 @@
 {
     "scripts": {
         "w": "prettier --write .",
-        "c": "prettier --check ."
+        "c": "prettier --check .",
+        "test": "mocha test/md-js.test.js"
     },
     "devDependencies": {
+        "mocha": "^11.7.1",
         "prettier": "^3.6.2"
     }
 }

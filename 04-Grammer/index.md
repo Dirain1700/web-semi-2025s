@@ -46,10 +46,10 @@ JavaScriptでは、Pythonのように宣言することもできますが、変�
 ```js
 // varを使った変数名の衝突例
 var name = "Alice";
-console.log(name); // Alice
+console.log(name); // expect: Alice
 
 var name = "Bob"; // 再宣言してしまう
-console.log(name); // Bob
+console.log(name); // expect: Bob
 
 // letやconstならエラーになるが、varだと上書きされてしまう
 ```
@@ -78,9 +78,10 @@ nullとかundefinedは変わらないじゃん！とか思ったそこのあな�
 宣言したブロックというのは、まあそのままなのですが、
 
 ```js
+// no-ci
 {
     const name = "Alice";
-    console.log(name); // <- Alice
+    console.log(name); // expect: Alice
 }
 console.log(name); // ReferenceError: name is not defined
 ```
@@ -155,6 +156,7 @@ for...ofは配列に使います。for...inは`{ key: value }`で表される**�
 [for...in - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...in)
 
 ```js
+// no-ci
 const arr = ["a", "f", "1", "8"];
 
 const dict = {
@@ -177,10 +179,15 @@ for (const k in dict) {
 たとえば、dictのtaroが欲しければ、`dict["taro"]`のようにアクセスすることもできますが、`const key = "taro";`のように変数に値を格納して、それをkeyとして連想配列のvalueにアクセスできます。
 
 ```js
-// 上のdictを先に定義してください
+const dict = {
+    taro: "saitama",
+    jiro: "tokyo",
+    saburo: "kagawa",
+    shiro: "inu",
+};
 const key = "taro";
-console.log(dict["taro"]);
-console.log(dict[key]);
+console.log(dict["taro"]); // expect: saitama
+console.log(dict[key]); // expect: saitama
 ```
 
 連想配列の補足もしたところで、for文の例を実行してみてください。中身が見えるはずです。つぎ、カウント型のfor文！
@@ -201,6 +208,7 @@ JavaScriptだとこう:
 [for - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for)
 
 ```js
+// no-ci
 for (let i = 0; i < 10; i++) {
     console.log(i);
 }
