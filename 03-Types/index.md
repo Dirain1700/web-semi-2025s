@@ -32,7 +32,7 @@ JavaScriptでは、double qouteが標準です。別にシングルでもダメ�
 
 ```js
 "Hello, world!";
-"Hello, world";
+"Hello, world!";
 `Hello, world!`;
 ```
 
