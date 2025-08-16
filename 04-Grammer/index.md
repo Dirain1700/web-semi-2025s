@@ -113,6 +113,8 @@ functionは、任意の値を一つだけ返すことができます。Pythonと
 function isNameBlank(name) {
     return !name;
 }
+
+console.log(isNameBlank("Alice")); // expect: false
 ```
 
 前回、`!`は否定演算子だとお伝えしました。文字列の否定、逆と言われても？だと思います。`!`をつけるとなんでもbooleanで返ってきます。文字列が空(="")のとき、`!`をつけると`true`が返ってきます。逆に、空でさえなければ`false`が返ってきます。
@@ -271,7 +273,7 @@ if文、すっかり忘れていました。Pythonとほぼ同じですが、条
 function isPrimitive(arg) {
     const type = typeof arg;
     if (type === "object") {
-        if (type === null) {
+        if (arg === null) {
             return true;
         } else {
             return false;
@@ -279,8 +281,101 @@ function isPrimitive(arg) {
     }
     return true;
 }
+
+console.log(isPrimitive(null)); // expect: true
 ```
 
 ifは入れ子にすることもできます。elseの代わりにelse ifにして無限に続けることもできます。また、if文の中でreturnすれば、elseにif節に入ってそのまま抜けてくる条件はないので、elseを省略することもできます(最後の行がそうです。)
 
+### switch & case
+
+いつになったら買えるんですかね？マイニンテンドーストアは参加条件満たしてなくて、家電量販店はビックカメラからしか買わないと決めているので、買える気がしません。
+
+`switch(条件)`でswitch文を書けます。その下に`case`節を置いて、条件分岐ができます。
+
+```js
+function showMessage(score) {
+    switch (score) {
+        case 4: {
+            console.log("S");
+            break;
+        }
+        case 3.5: {
+            console.log("A+");
+            break;
+        }
+        case 3: {
+            console.log("A");
+            break;
+        }
+        case 2.5: {
+            console.log("B+");
+            break;
+        }
+        case 2: {
+            console.log("B");
+            break;
+        }
+        case 1.5: {
+            console.log("C+");
+            break;
+        }
+        case 1: {
+            console.log("C");
+            break;
+        }
+        case 0: {
+            console.log("D");
+            break;
+        }
+        default:
+            console.log("F");
+    }
+}
+
+showMessage(40); // expect: F
+```
+
+このswitch文、すごく便利に見えるじゃないですか？そんなことはないんですよ。なぜかというと、`case`には定数しか入れられない(語弊あり)からです。`switch(statement)`と`case conditions`の`statement`と`conditions`が一致すると、そのcaseに入ります。
+
+`if()`には好きな条件を入れられますが、`switch()`は`statement`と`conditions`の**値**が一致しないとその節に入りません。あとはもうおわかりですね？実質、conditionsには定数しか入らない、ということです。
+
+`default`は`case`を順番に走査していって、switchを抜けなかったときに行きます。この例では、`showMessage(40)`とかしたらFと表示されます。成績不正、よくない。`default`はいらんと思ったら書かなくてもよいです。エラーハンドリングの観点からは書いた方がよいと思いますが。
+
+`case`節のブロック`{}`は省略できます。また、`case`節の`break`を省略すると、そのまま他の`case`や`default`に行ってしまうので、`break`でswitch文を抜けるのを忘れないようにしましょう。
+
+### while
+
+`while(statement)`でstatementがfalseになるまで`{}`の中を繰り返し実行し続けます。正直、`for i`で間に合います。`while`を使うのは以下のケースです。
+
+```js
+// no-ci
+// for文では書きにくい、ユーザーが"exit"と入力するまで繰り返す例
+// Windowオブジェクトはブラウザにのみあります
+while (true) {
+    const input = window.prompt("何か入力してください（exitで終了）:");
+    if (input === "exit") {
+        break;
+    }
+    console.log("あなたの入力: " + input);
+}
+```
+
+`statement`には定数も入れられます。ですから、`true`も入れられます。`while(i)`として`i = false`とかするんじゃなくて、`while(true)`として`break`で抜けた方がスマートに書けます。Pythonもいっしょね
+
+### try & catch
+
+```js
+// no-ci
+try {
+    throw new Error("Too hot...");
+} catch (e) {
+    console.error(e);
+}
+```
+
+失敗、というかエラーを発生させる可能性がある処理を書くときは、tryブロックの中に書きます。catchブロックでconsole.logなり適切な処理をして、エラーを読みます。こうすることで、エラーが発生しても処理を続けることができます。常用するのはやめましょう。
+
 ここまで。次回は演算子の話を垂れ流します。というか、演算子は結局MDN見た方が早いから、AIに作らせてもいいですよね？品質は私が担保します。
+
+配列操作は第7回で詳しくやります。
