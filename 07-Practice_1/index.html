@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>素因数分解</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <noscript>JavaScriptが無効です。機能を利用するには有効にしてください。</noscript>
+        <div id="container">
+            <div id="inputContainer">
+                <input type="text" id="inputNumber" placeholder="数を入力" />
+                <button id="executeButton">分解</button>
+            </div>
+            <div id="resultContainer" hidden>結果: <span id="result"></span></div>
+            <div id="errorContainer" hidden>エラー: <span id="error"></span></div>
+        </div>
+    </body>
+    <script src="result.js"></script>
+</html>

@@ -1,0 +1,35 @@
+:root {
+    --form-height: 2em;
+    --border-radius: 6px;
+}
+
+body {
+    background-color: powderblue;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+#container {
+    margin: 5em;
+}
+
+#inputContainer {
+    margin: 2em 0;
+}
+
+#inputNumber,
+#executeButton {
+    height: var(--form-height);
+    border-radius: var(--border-radius);
+    border: 1px solid #888888;
+    vertical-align: middle;
+}
+
+#inputNumber {
+    padding: 0 0.5em;
+}
+
+#executeButton {
+    margin: 0;
+    padding: 0;
+    width: 72px;
+}
